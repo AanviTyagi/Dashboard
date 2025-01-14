@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="dark-mode">
+    <div class="grid-container">
+      <!-- Header -->
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span
+            class="material-icons-outlined"
+            id="toggle-dark-mode"
+            onclick="toggleDarkMode()"
+          >
+            light_mode
+          </span>
+          <span
+            class="material-icons-outlined"
+            id="message-icon"
+            onclick="toggleMessagesWindow()"
+          >
+            email
+          </span>
+          <span
+            class="material-icons-outlined"
+            id="profile-icon"
+            onclick="toggleProfileWindow()"
+          >
+            account_circle
+          </span>
+        </div>
+      </header>
+
+      <!-- Messages Window -->
+      <div class="popup-window" id="messages-window">
+        <h3>Messages</h3>
+        <div class="message-item">Message 1: Hi there!</div>
+        <div class="message-item">Message 2: How can I help?</div>
+        <div class="message-item">Message 3: Meeting at 3 PM.</div>
+        <div class="message-item">Message 4: Don't forget the deadline!</div>
+      </div>
+
+      <!-- Profile Window -->
+      <div class="popup-window" id="profile-window">
+        <h3>Profile</h3>
+        <p>Signed in as: <strong>Admin</strong></p>
+        <button class="logout-btn">Logout</button>
+      </div>
+
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">shopping_cart</span> STORE
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#cards">
+              <span class="material-icons-outlined">dashboard</span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#pro">
+              <span class="material-icons-outlined">inventory_2</span> Products
+            </a>
+          </li>
+
+          <li class="sidebar-list-item">
+            <a href="#reviews">
+              <span class="material-icons-outlined">groups</span> Customers
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#reviews">
+              <span class="material-icons-outlined">settings</span> Settings
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>DASHBOARD</h2>
+        </div>
+
+        <div class="main-cards" id="cards">
+          <div class="card">
+            <div class="card-inner">
+              <h3>PRODUCTS</h3>
+              <span class="material-icons-outlined">inventory_2</span>
+            </div>
+            <h1>249</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>CATEGORIES</h3>
+              <span class="material-icons-outlined">category</span>
+            </div>
+            <h1>25</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>CUSTOMERS</h3>
+              <span class="material-icons-outlined">groups</span>
+            </div>
+            <h1>1500</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>ALERTS</h3>
+              <span class="material-icons-outlined"
+                >notification_important</span
+              >
+            </div>
+            <h1>56</h1>
+          </div>
+        </div>
+
+        <div class="charts">
+          <div class="charts-card">
+            <h2 class="chart-title">Top 5 Products</h2>
+            <div id="bar-chart"></div>
+          </div>
+
+          <div class="charts-card">
+            <h2 class="chart-title">Purchase and Sales Orders</h2>
+            <div id="area-chart"></div>
+          </div>
+        </div>
+
+        <!-- Products Section -->
+        <div id="pro">
+          <h2 class="section-title">Products</h2>
+          <div class="product"><i class="fa-solid fa-laptop"></i></div>
+          <div class="product"><i class="fa-solid fa-mobile"></i></div>
+          <div class="product"><i class="fa-solid fa-desktop"></i></div>
+          <div class="product"><i class="fa-solid fa-headphones"></i></div>
+          <div class="product"><i class="fa-solid fa-camera"></i></div>
+        </div>
+        <!-- Reviews Section -->
+        <div id="reviews">
+          <h2 class="reviews-title">User Reviews</h2>
+          <div class="reviews-container">
+            <div class="review-card">
+              <h3 class="review-name">John Doe</h3>
+              <p class="review-text">
+                "This platform is absolutely fantastic! I love the user-friendly
+                interface."
+              </p>
+            </div>
+            <div class="review-card">
+              <h3 class="review-name">Jane Smith</h3>
+              <p class="review-text">
+                "Amazing experience! The charts and features are very
+                insightful."
+              </p>
+            </div>
+            <div class="review-card">
+              <h3 class="review-name">Samuel Lee</h3>
+              <p class="review-text">
+                "The design is sleek and navigation is smooth. Highly
+                recommend!"
+              </p>
+            </div>
+            <div class="review-card">
+              <h3 class="review-name">Emily Davis</h3>
+              <p class="review-text">
+                "Really impressed with the functionalities provided here."
+              </p>
+            </div>
+            <div class="review-card">
+              <h3 class="review-name">Michael Brown</h3>
+              <p class="review-text">
+                "Great platform! Helped me track my progress effectively."
+              </p>
+            </div>
+            <div class="review-card">
+              <h3 class="review-name">Sophia Wilson</h3>
+              <p class="review-text">
+                "Easy to use and visually appealing. Kudos to the developers!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- End Main -->
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
